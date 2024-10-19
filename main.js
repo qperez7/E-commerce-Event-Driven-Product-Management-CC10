@@ -24,3 +24,13 @@ stock--;
 updateInventory();
 });
 updateInventory();
+// Task 4: Create a Checkout Event
+document.getElementById('inventory-count').addEventListener('Purchase',
+    function(event){
+        if(event.preventDefault()) {
+        alert('Item is out of stock');
+        }
+    else {
+        alert ('Your purchase has been confirmed')
+    }
+    });
