@@ -7,13 +7,16 @@ const selectedPrice = event.target.value;
 priceElement.textContent = `$${selectedPrice}`;
 });
 // Task 3: Handle Stock Availability
-let stock = 10;
-const inventoryCount = document.getElementById("inventory-count");
+const stock = {
+    small: 4,
+    medium: 4,
+    large: 2,
+};
 const purchaseButton = document.getElementById("Purchase");
-function updateInventory() {
-if (stock > 0) {
+function updateInventory(stock) {
+if (stock[size] > 0) {
 purchaseButton.disabled = false;
-inventoryCount.textContent = `In Stock: ${stock}`;
+inventoryCount.textContent = `In Stock: ${stock[size]}`;
 } else {
 purchaseButton.disabled = true;
 inventoryCount.textContent = "Out of Stock";
@@ -25,7 +28,7 @@ updateInventory();
 });
 updateInventory();
 // Task 4: Create a Checkout Event
-document.getElementById('inventory-count').addEventListener('Purchase',
+document.getElementById('size-selector').addEventListener('Purchase',
     function(event){
         if(event.preventDefault()) {
         alert('Item is out of stock');
@@ -34,3 +37,13 @@ document.getElementById('inventory-count').addEventListener('Purchase',
         alert ('Your purchase has been confirmed')
     }
     });
+// Task 5: Implement Event Delegation for Dynamic Product List
+const itemList = document.getElementById('itemList');
+itemList.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+    alert(`You clicked ${event.target.textContent}`);
+    }
+    });
+const newItem = document.createElement('li');
+newItem.textContent = `Item ${itemList.children.length + 1}`;
+itemList.appendChild(newItem)
