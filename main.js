@@ -14,12 +14,12 @@ const stock = {
 };
 const purchaseButton = document.getElementById("Purchase");
 function updateInventory(stock) {
-if (stock[size] > 0) {
+if (stock > 0) {
 purchaseButton.disabled = false;
-inventoryCount.textContent = `In Stock: ${stock[size]}`;
+return `In Stock: ${stock[size] - 1}`
 } else {
 purchaseButton.disabled = true;
-inventoryCount.textContent = "Out of Stock";
+return 'Out of Stock'
 }
 }
 purchaseButton.addEventListener("click", () => {
