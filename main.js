@@ -15,10 +15,10 @@ const stock = {
 const purchaseButton = document.getElementById("Purchase");
 function updateInventory(stock) {
 if (stock > 0) {
-purchaseButton.disabled = false;
+purchaseButton.disabled = true;
 return `In Stock: ${stock[size] - 1}`
 } else {
-purchaseButton.disabled = true;
+purchaseButton.disabled = false;
 return 'Out of Stock'
 }
 }
@@ -45,5 +45,5 @@ itemList.addEventListener('click', (event) => {
     }
     });
 const newItem = document.createElement('li');
-newItem.textContent = `Item ${itemList.children.length + 1}`;
+//newItem.textContent = `Item ${itemList.children.length + 1}`;
 itemList.appendChild(newItem)
